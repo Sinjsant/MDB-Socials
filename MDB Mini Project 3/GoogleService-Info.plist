@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>1003137933948-icjmhmnfs40kuvmkibvugesit2fv77mh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1003137933948-icjmhmnfs40kuvmkibvugesit2fv77mh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA1tY4xhdNagvJoq9y_uwlmPUt0xDp1zUA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1003137933948</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>SinjonSantos.MDB-Mini-Project-3</string>
+	<key>PROJECT_ID</key>
+	<string>mdbsocials-aee89</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mdbsocials-aee89.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1003137933948:ios:a165371ca702c9c6</string>
+	<key>DATABASE_URL</key>
+	<string>https://mdbsocials-aee89.firebaseio.com</string>
+</dict>
+</plist>
