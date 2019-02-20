@@ -15,7 +15,6 @@
 		598BE9612215259800F4ED51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 598BE95F2215259800F4ED51 /* LaunchScreen.storyboard */; };
 		598BE96C2215259800F4ED51 /* MDB_Mini_Project_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598BE96B2215259800F4ED51 /* MDB_Mini_Project_3Tests.swift */; };
 		598BE9772215259900F4ED51 /* MDB_Mini_Project_3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598BE9762215259900F4ED51 /* MDB_Mini_Project_3UITests.swift */; };
-		598BE9852215269500F4ED51 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 598BE9842215269500F4ED51 /* GoogleService-Info.plist */; };
 		598BE99F221BE50900F4ED51 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598BE99E221BE50900F4ED51 /* Montserrat-SemiBoldItalic.ttf */; };
 		598BE9A1221BE86600F4ED51 /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598BE9A0221BE86600F4ED51 /* Montserrat-BoldItalic.ttf */; };
 		598BE9A3221BE9F600F4ED51 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598BE9A2221BE9F600F4ED51 /* Montserrat-SemiBold.ttf */; };
@@ -27,6 +26,7 @@
 		598BE9B4221C9EC300F4ED51 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598BE9B3221C9EC300F4ED51 /* FeedViewController.swift */; };
 		598BE9B6221CA56E00F4ED51 /* FeedViewController-Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598BE9B5221CA56E00F4ED51 /* FeedViewController-Table.swift */; };
 		598BE9BA221CA60F00F4ED51 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598BE9B9221CA60F00F4ED51 /* FeedTableViewCell.swift */; };
+		8EAB5D99221D1E660068D530 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EAB5D98221D1E660068D530 /* GoogleService-Info.plist */; };
 		9549EBDC5EAC26E3F90A615F /* Pods_MDB_Mini_Project_3UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9FC0971E10BAFFACDAF126 /* Pods_MDB_Mini_Project_3UITests.framework */; };
 		D17FFDE19DED5D1794DBA0F2 /* Pods_MDB_Mini_Project_3Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5AD4E02FFF20D86B7BEC4D /* Pods_MDB_Mini_Project_3Tests.framework */; };
 /* End PBXBuildFile section */
@@ -65,7 +65,6 @@
 		598BE9722215259800F4ED51 /* MDB Mini Project 3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MDB Mini Project 3UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		598BE9762215259900F4ED51 /* MDB_Mini_Project_3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDB_Mini_Project_3UITests.swift; sourceTree = "<group>"; };
 		598BE9782215259900F4ED51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		598BE9842215269500F4ED51 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		598BE99E221BE50900F4ED51 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		598BE9A0221BE86600F4ED51 /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
 		598BE9A2221BE9F600F4ED51 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -80,6 +79,7 @@
 		8468F35A1EC649D7B2BFBC1F /* Pods-MDB Mini Project 3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDB Mini Project 3.release.xcconfig"; path = "Target Support Files/Pods-MDB Mini Project 3/Pods-MDB Mini Project 3.release.xcconfig"; sourceTree = "<group>"; };
 		85FCDE468A8D059AB27B335A /* Pods_MDB_Mini_Project_3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MDB_Mini_Project_3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B435B72B6D28878C663D5F2 /* Pods-MDB Mini Project 3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDB Mini Project 3Tests.release.xcconfig"; path = "Target Support Files/Pods-MDB Mini Project 3Tests/Pods-MDB Mini Project 3Tests.release.xcconfig"; sourceTree = "<group>"; };
+		8EAB5D98221D1E660068D530 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE5AD4E02FFF20D86B7BEC4D /* Pods_MDB_Mini_Project_3Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MDB_Mini_Project_3Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9FC0971E10BAFFACDAF126 /* Pods_MDB_Mini_Project_3UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MDB_Mini_Project_3UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED92338C055E4A6E5A86AEDB /* Pods-MDB Mini Project 3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDB Mini Project 3Tests.debug.xcconfig"; path = "Target Support Files/Pods-MDB Mini Project 3Tests/Pods-MDB Mini Project 3Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,10 +161,9 @@
 		598BE9552215259700F4ED51 /* MDB Mini Project 3 */ = {
 			isa = PBXGroup;
 			children = (
-				598BE9842215269500F4ED51 /* GoogleService-Info.plist */,
+				8EAB5D98221D1E660068D530 /* GoogleService-Info.plist */,
 				598BE9562215259700F4ED51 /* AppDelegate.swift */,
 				598BE998221BE1AF00F4ED51 /* Models */,
-				598BE99A221BE1DB00F4ED51 /* Views */,
 				598BE99B221BE1E100F4ED51 /* Controllers */,
 				598BE95D2215259800F4ED51 /* Assets.xcassets */,
 				598BE95A2215259700F4ED51 /* Main.storyboard */,
@@ -198,13 +197,6 @@
 				598BE99D221BE4D400F4ED51 /* Fonts */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		598BE99A221BE1DB00F4ED51 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		598BE99B221BE1E100F4ED51 /* Controllers */ = {
@@ -375,12 +367,12 @@
 			files = (
 				598BE9A1221BE86600F4ED51 /* Montserrat-BoldItalic.ttf in Resources */,
 				598BE9612215259800F4ED51 /* LaunchScreen.storyboard in Resources */,
-				598BE9852215269500F4ED51 /* GoogleService-Info.plist in Resources */,
 				598BE9A5221BF2EC00F4ED51 /* Poppins-Bold.ttf in Resources */,
 				598BE9A3221BE9F600F4ED51 /* Montserrat-SemiBold.ttf in Resources */,
 				598BE95E2215259800F4ED51 /* Assets.xcassets in Resources */,
 				598BE9A7221BF39600F4ED51 /* Poppins-SemiBold.ttf in Resources */,
 				598BE99F221BE50900F4ED51 /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				8EAB5D99221D1E660068D530 /* GoogleService-Info.plist in Resources */,
 				598BE95C2215259700F4ED51 /* Main.storyboard in Resources */,
 				598BE9A9221BF41700F4ED51 /* Poppins-BoldItalic.ttf in Resources */,
 			);

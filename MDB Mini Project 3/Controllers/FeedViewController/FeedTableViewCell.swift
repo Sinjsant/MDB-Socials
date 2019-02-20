@@ -38,6 +38,8 @@ class FeedTableViewCell: UITableViewCell {
         let imageTint = UIView()
         imageTint.backgroundColor = UIColor(white: 0, alpha: 0.4)
         imageTint.frame = eventImage.frame
+        imageTint.layer.cornerRadius = 20
+        imageTint.layer.masksToBounds = true
         
         contentView.addSubview(imageTint)
         
