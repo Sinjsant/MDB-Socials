@@ -15,7 +15,7 @@ class FeedTableViewCell: UITableViewCell {
     var nameLabel : UILabel!
     var ownerLabel : UILabel!
     var numLabel : UILabel!
-    var rsvpIcon : UIImageView!
+    var icon : UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,31 +25,59 @@ class FeedTableViewCell: UITableViewCell {
     
     func initCellFrom(size: CGSize) {
         
-        eventImage = UIImageView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height-30))
+       
+        eventImage = UIImageView(frame: CGRect(x: 0, y: 10, width: size.width, height: size.height-30))
         eventImage.image = UIImage(named: "event1")
         eventImage.contentMode = .scaleToFill
         eventImage.layer.cornerRadius = 20
         eventImage.layer.masksToBounds = true
         eventImage.alpha = 1.0
-        contentView.backgroundColor = .clear
         contentView.addSubview(eventImage)
 
         
         let imageTint = UIView()
         imageTint.backgroundColor = UIColor(white: 0, alpha: 0.4)
         imageTint.frame = eventImage.frame
+        imageTint.layer.cornerRadius = 20
         
         contentView.addSubview(imageTint)
         
-        nameLabel = UILabel(frame: CGRect(x: 20, y: size.height-80, width: size.width-30, height: 40))
+        nameLabel = UILabel(frame: CGRect(x: 20, y: size.height-70, width: size.width-20, height: 40))
         nameLabel.text = "Gryffin @ Bill Graham"
         nameLabel.numberOfLines = 0
         nameLabel.adjustsFontSizeToFitWidth = true
         nameLabel.minimumScaleFactor = 0.3
-        nameLabel.font = UIFont(name: "Poppins-Bold", size: 30)
+        nameLabel.font = UIFont(name: "Poppins-Bold", size: 32)
         nameLabel.textColor = .white
         nameLabel.textAlignment = .left
         contentView.addSubview(nameLabel)
+        
+        ownerLabel = UILabel(frame: CGRect(x: 20, y: nameLabel.frame.maxY-70, width: size.width-20, height: 30))
+        ownerLabel.text = "ASUC Superb"
+        ownerLabel.numberOfLines = 1
+        ownerLabel.adjustsFontSizeToFitWidth = true
+        ownerLabel.minimumScaleFactor = 0.3
+        ownerLabel.font = UIFont(name: "Poppins-SemiBold", size: 20)
+        ownerLabel.textColor = .white
+        ownerLabel.textAlignment = .left
+        contentView.addSubview(ownerLabel)
+        
+        icon = UIImageView(frame: CGRect(x: size.width-55, y: 22, width: 40, height: 40))
+        icon.contentMode = .scaleAspectFit
+        icon.image = UIImage(named: "person")
+        contentView.addSubview(icon)
+        
+        numLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        numLabel.center = CGPoint(x: icon.frame.center.x, y: icon.frame.maxY + 20)
+        numLabel.text = "12"
+        numLabel.adjustsFontSizeToFitWidth = true
+        numLabel.minimumScaleFactor = 0.3
+        numLabel.font = UIFont(name: "Poppins-SemiBold", size: 30)
+        numLabel.textColor = .white
+        numLabel.textAlignment = .center
+        contentView.addSubview(numLabel)
+        
+        
     }
 
         

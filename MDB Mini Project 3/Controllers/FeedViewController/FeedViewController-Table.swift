@@ -12,7 +12,7 @@ import Material
 extension FeedViewController : UITableViewDataSource, UITableViewDelegate {
     
     func height(for index: IndexPath) -> CGFloat {
-        return 280
+        return 250
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -20,7 +20,7 @@ extension FeedViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -28,11 +28,11 @@ extension FeedViewController : UITableViewDataSource, UITableViewDelegate {
         cell.awakeFromNib()
         let size = CGSize(width: feedTableView.frame.width, height: height(for: indexPath))
         cell.initCellFrom(size: size)
-  
-        
+        cell.selectionStyle = .none
         
         return cell
     }
     
+   
     
 }

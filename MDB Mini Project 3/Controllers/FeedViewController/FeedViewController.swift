@@ -14,35 +14,41 @@ class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         let backButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
         backButton.tintColor = .white
         backButton.title = "Logout"
         
         self.navigationItem.leftBarButtonItem = backButton
         
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 225, height: 60))
-        titleLabel.center = CGPoint(x: view.frame.width/2, y: 50)
-        titleLabel.text = "Events"
-        titleLabel.font = UIFont(name: "Poppins-SemiBold", size: 24)
-        titleLabel.textColor = .white
-        titleLabel.textAlignment = .center
-        self.navigationItem.titleView = titleLabel
         
-        self.navigationController!.navigationBar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 400)
+        // Attempt to style navbar title
+//        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 225, height: 60))
+//        titleLabel.center = CGPoint(x: view.frame.width/2, y: 50)
+//        titleLabel.text = "Events"
+//        titleLabel.font = UIFont(name: "Poppins-SemiBold", size: 24)
+//        titleLabel.textColor = .white
+//        titleLabel.textAlignment = .center
+//        self.navigationItem.titleView = titleLabel
+//
   
-//        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "Poppins-Bold", size: 40)!, NSAttributedString.Key.foregroundColor: UIColor.white]
-//        self.navigationItem.title = "Events"
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationItem.titlecolor
+        // Old attempt to style navbar title
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Bold", size: 24)!, NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Bold", size: 40)!, NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationItem.title = "Events"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
 
         
 
         
-        feedTableView = UITableView(frame: CGRect(x: 20, y: 200, width: view.frame.width-40, height: view.frame.height-300))
+        feedTableView = UITableView(frame: CGRect(x: 20, y: (self.navigationController?.navigationBar.frame.height)!, width: view.frame.width-40, height: view.frame.height-100))
         feedTableView.dataSource = self
         feedTableView.delegate = self
         feedTableView.register(FeedTableViewCell.self, forCellReuseIdentifier: "eventCell")
         view.addSubview(feedTableView)
+        
 
         // Do any additional setup after loading the view.
     }
