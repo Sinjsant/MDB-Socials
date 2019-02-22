@@ -75,10 +75,44 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="y70-fo-Jea"/>
                     </view>
+                    <connections>
+                        <segue destination="Kzf-MC-Zn5" kind="show" identifier="toDetails" id="Axq-hd-Ytc"/>
+                        <segue destination="UYy-Kx-ynV" kind="show" identifier="toCreate" id="T3P-LL-bVD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FI1-82-DXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2810" y="161"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="HFi-tF-SdP">
+            <objects>
+                <viewController id="Kzf-MC-Zn5" customClass="DetailViewController" customModule="MDB_Mini_Project_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jst-p1-3H9" customClass="deta">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="hEA-YM-w0R"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l30-Sc-55j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4106" y="-278"/>
+        </scene>
+        <!--Create View Controller-->
+        <scene sceneID="Akm-ae-wv8">
+            <objects>
+                <viewController id="UYy-Kx-ynV" customClass="CreateViewController" customModule="MDB_Mini_Project_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P7l-MG-fPg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="hOK-OS-IG8"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mQd-iV-igo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4110" y="412"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="OSs-my-QxR">

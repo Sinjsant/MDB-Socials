@@ -72,12 +72,14 @@ class FeedViewController: UIViewController {
         super.viewWillDisappear(animated)
         // Hide the navigation bar on next view controllers
         // Is this even necessary?
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.barTintColor = .clear
-        self.navigationController?.navigationBar.backgroundColor = .clear
-        self.navigationController?.view.backgroundColor = .clear
+         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = .white
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.isTranslucent = true
+//        self.navigationController?.navigationBar.barTintColor = .clear
+//        self.navigationController?.navigationBar.backgroundColor = .clear
+//        self.navigationController?.view.backgroundColor = .clear
     }
     
     
@@ -93,7 +95,6 @@ class FeedViewController: UIViewController {
     }
     
     @objc func createNew() {
-        // waiting on her vc
         performSegue(withIdentifier: "toCreate", sender: self)
     }
     
@@ -118,9 +119,8 @@ class FeedViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
-            // Waiting on her VC
-//            let resultVC = segue.destination as! DetailsViewController
-//            resultVC.event = selectedEvent
+            let resultVC = segue.destination as! DetailViewController
+            resultVC.event = selectedEvent
         }
     }
     
