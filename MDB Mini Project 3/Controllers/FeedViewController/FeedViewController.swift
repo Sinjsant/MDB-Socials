@@ -13,6 +13,7 @@ import Firebase
 class FeedViewController: UIViewController {
     
     var feedTableView : UITableView!
+    var selectedEvent : Event!
     var allEvents: [Event]! = [] {
         didSet {
             feedTableView.reloadData()
@@ -81,10 +82,18 @@ class FeedViewController: UIViewController {
     
     
     @objc func logout() {
+        
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
         self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func createNew() {
+        // waiting on her vc
         performSegue(withIdentifier: "toCreate", sender: self)
     }
     
@@ -104,6 +113,14 @@ class FeedViewController: UIViewController {
             }
             allEventsTemp = allEventsTemp.sorted(by: {$0.getDate() > $1.getDate()})
             self.allEvents = allEventsTemp
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetails" {
+            // Waiting on her VC
+//            let resultVC = segue.destination as! DetailsViewController
+//            resultVC.event = selectedEvent
         }
     }
     

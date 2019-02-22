@@ -8,6 +8,8 @@
 
 import UIKit
 import Material
+import Firebase
+
 
 class InitialViewController: UIViewController {
     
@@ -18,6 +20,12 @@ class InitialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Auth.auth().currentUser != nil {
+            performSegue(withIdentifier: "skipToFeed", sender: self)
+        }
+        
+        
         
         titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/4))
         titleLabel.center = CGPoint(x: view.frame.width/2, y: 180)

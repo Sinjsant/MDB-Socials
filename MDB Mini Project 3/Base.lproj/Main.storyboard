@@ -40,6 +40,7 @@
                     <connections>
                         <segue destination="hy8-1G-uZj" kind="show" identifier="toLogin" id="3hM-Ra-XzC"/>
                         <segue destination="2tr-po-DY9" kind="show" identifier="toRegister" id="Ahl-Fc-U31"/>
+                        <segue destination="ReT-F2-uJW" kind="show" identifier="skipToFeed" id="Oj3-3f-2sy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -99,6 +100,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iwZ-4W-Dij"/>
+        <segue reference="Oj3-3f-2sy"/>
     </inferredMetricsTieBreakers>
 </document>

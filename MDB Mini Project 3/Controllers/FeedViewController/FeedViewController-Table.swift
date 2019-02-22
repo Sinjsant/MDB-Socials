@@ -34,6 +34,12 @@ extension FeedViewController : UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedEvent = allEvents[indexPath.row]
+        // waiting for her vc
+        performSegue(withIdentifier: "toDetails", sender: self)
+    }
+    
    
     
 }
