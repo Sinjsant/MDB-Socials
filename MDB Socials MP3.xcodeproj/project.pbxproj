@@ -14,6 +14,7 @@
 		8EAB5E07221FA5B50068D530 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EAB5E05221FA5B50068D530 /* LaunchScreen.storyboard */; };
 		8EAB5E12221FA5B50068D530 /* MDB_Socials_MP3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAB5E11221FA5B50068D530 /* MDB_Socials_MP3Tests.swift */; };
 		8EAB5E1D221FA5B50068D530 /* MDB_Socials_MP3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAB5E1C221FA5B50068D530 /* MDB_Socials_MP3UITests.swift */; };
+		8EAB5E2B221FABBA0068D530 /* NewEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAB5E2A221FABBA0068D530 /* NewEventVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		8EAB5E18221FA5B50068D530 /* MDB Socials MP3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MDB Socials MP3UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EAB5E1C221FA5B50068D530 /* MDB_Socials_MP3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDB_Socials_MP3UITests.swift; sourceTree = "<group>"; };
 		8EAB5E1E221FA5B50068D530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EAB5E2A221FABBA0068D530 /* NewEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				8EAB5DFC221FA5B30068D530 /* AppDelegate.swift */,
 				8EAB5DFE221FA5B30068D530 /* ViewController.swift */,
+				8EAB5E2A221FABBA0068D530 /* NewEventVC.swift */,
 				8EAB5E00221FA5B30068D530 /* Main.storyboard */,
 				8EAB5E03221FA5B50068D530 /* Assets.xcassets */,
 				8EAB5E05221FA5B50068D530 /* LaunchScreen.storyboard */,
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EAB5DFF221FA5B30068D530 /* ViewController.swift in Sources */,
+				8EAB5E2B221FABBA0068D530 /* NewEventVC.swift in Sources */,
 				8EAB5DFD221FA5B30068D530 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
