@@ -83,7 +83,15 @@ class InitialViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Show the navigation bar on other view controllers
+        // I need these for it to work
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.navigationBar.backgroundColor = .clear
+        // I don't actually know if I need these
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barTintColor = .clear
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     public static func printFontFamilies() {

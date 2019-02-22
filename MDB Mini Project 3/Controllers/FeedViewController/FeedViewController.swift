@@ -35,15 +35,16 @@ class FeedViewController: UIViewController {
   
         // Old attempt to style navbar title
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Bold", size: 24)!, NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-Bold", size: 40)!, NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-SemiBold", size: 24)!, NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-SemiBold", size: 40)!, NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationItem.title = "Events"
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .automatic
 
         
 
         
-        feedTableView = UITableView(frame: CGRect(x: 20, y: (self.navigationController?.navigationBar.frame.height)!, width: view.frame.width-40, height: view.frame.height-100))
+        feedTableView = UITableView(frame: CGRect(x: 10, y: (self.navigationController?.navigationBar.frame.height)!, width: view.frame.width-20, height: view.frame.height-100))
         feedTableView.dataSource = self
         feedTableView.delegate = self
         feedTableView.register(FeedTableViewCell.self, forCellReuseIdentifier: "eventCell")
@@ -55,7 +56,7 @@ class FeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Hide the navigation bar on the this view controller
+        // Show the navigation bar on the this view controller
         self.navigationController?.navigationBar.barTintColor = .blue
         self.navigationController?.navigationBar.backgroundColor = .blue
 
@@ -63,7 +64,8 @@ class FeedViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // Show the navigation bar on other view controllers
+        // Hide the navigation bar on next view controllers
+        // Is this even necessary?
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
