@@ -7,31 +7,36 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import Firebase
 
 class FeedViewController: UIViewController {
     
     var feedTableView : UITableView!
+    var allEvents: [Event]! = [] {
+        didSet {
+            feedTableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadAllEvents();
+        
         
         let backButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
         backButton.tintColor = .white
-        backButton.title = "Logout"
-        
         self.navigationItem.leftBarButtonItem = backButton
         
+        let createButton = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(createNew))
+        createButton.tintColor = .white
+        createButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-SemiBold", size: 34)!],
+                                            for: .normal)
+        self.navigationItem.rightBarButtonItem = createButton
         
-        // Attempt to style navbar title
-//        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 225, height: 60))
-//        titleLabel.center = CGPoint(x: view.frame.width/2, y: 50)
-//        titleLabel.text = "Events"
-//        titleLabel.font = UIFont(name: "Poppins-SemiBold", size: 24)
-//        titleLabel.textColor = .white
-//        titleLabel.textAlignment = .center
-//        self.navigationItem.titleView = titleLabel
-//
+        
+
   
         // Old attempt to style navbar title
         
@@ -77,6 +82,29 @@ class FeedViewController: UIViewController {
     
     @objc func logout() {
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @objc func createNew() {
+        performSegue(withIdentifier: "toCreate", sender: self)
+    }
+    
+    func loadAllEvents() {
+        Database.database().reference().child("event").observe(.value) { (snap) in
+            var allEventsTemp : [Event] = []
+            for child in snap.children {
+                let eventDict = (child as! DataSnapshot).value as! NSDictionary
+                let name = eventDict.value(forKey: "name") as! String
+                let date = eventDict.value(forKey: "date") as! String
+                let description = eventDict.value(forKey: "description") as! String
+                let interested = eventDict.value(forKey: "interested") as! Int
+                let owner = eventDict.value(forKey: "owner") as! String
+                
+                let newEvent = Event(withName: name, ownedBy: owner, dated: date, description: description, interested: interested)
+                allEventsTemp.append(newEvent)
+            }
+            allEventsTemp = allEventsTemp.sorted(by: {$0.getDate() > $1.getDate()})
+            self.allEvents = allEventsTemp
+        }
     }
     
     

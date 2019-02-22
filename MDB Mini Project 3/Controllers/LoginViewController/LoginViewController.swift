@@ -94,6 +94,7 @@ class LoginViewController: UIViewController {
         
         Database.database().reference().child("user").child(username.text!).observeSingleEvent(of: .value) { (snap) in
             guard let data = snap.value as? [String: Any?] else {return}
+            
             let emailstring = data["email"] as! String
             Auth.auth().signIn(withEmail: emailstring, password: self.password.text!) { (auth, err) in
                 if let error = err {

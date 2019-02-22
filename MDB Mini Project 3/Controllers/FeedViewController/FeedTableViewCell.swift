@@ -11,6 +11,15 @@ import Material
 
 class FeedTableViewCell: UITableViewCell {
     
+    var event: Event? {
+        didSet {
+            if let event = event {
+                nameLabel.text = event.name
+                numLabel.text = "\(event.numInterested)"
+                ownerLabel.text = event.owner
+            }
+        }
+    }
     var eventImage : UIImageView!
     var nameLabel : UILabel!
     var ownerLabel : UILabel!
@@ -25,7 +34,6 @@ class FeedTableViewCell: UITableViewCell {
     
     func initCellFrom(size: CGSize) {
         
-       
         eventImage = UIImageView(frame: CGRect(x: 0, y: 10, width: size.width, height: size.height-30))
         eventImage.image = UIImage(named: "event1")
         eventImage.contentMode = .scaleToFill
@@ -43,7 +51,6 @@ class FeedTableViewCell: UITableViewCell {
         contentView.addSubview(imageTint)
         
         nameLabel = UILabel(frame: CGRect(x: 10, y: size.height-70, width: size.width-20, height: 40))
-        nameLabel.text = "Gryffin @ Bill Graham"
         nameLabel.numberOfLines = 0
         nameLabel.adjustsFontSizeToFitWidth = true
         nameLabel.minimumScaleFactor = 0.3
@@ -69,7 +76,6 @@ class FeedTableViewCell: UITableViewCell {
         
         numLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         numLabel.center = CGPoint(x: icon.frame.center.x, y: icon.frame.maxY + 20)
-        numLabel.text = "74"
         numLabel.adjustsFontSizeToFitWidth = true
         numLabel.minimumScaleFactor = 0.3
         numLabel.font = UIFont(name: "Poppins-Medium", size: 26)

@@ -20,7 +20,8 @@ extension FeedViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        print(allEvents?.count ?? 0)
+        return allEvents?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -29,7 +30,7 @@ extension FeedViewController : UITableViewDataSource, UITableViewDelegate {
         let size = CGSize(width: feedTableView.frame.width, height: height(for: indexPath))
         cell.initCellFrom(size: size)
         cell.selectionStyle = .none
-        
+        cell.event = allEvents?[indexPath.row]
         return cell
     }
     
