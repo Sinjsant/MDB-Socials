@@ -10,4 +10,8 @@ Login View
   Register View
 <img src="https://i.imgur.com/PJqCahj.jpg" width="250">
   Feed View
+<img src="https://i.imgur.com/le01qOx.jpg" width="250">
+  Event Detail View
+<img src="https://i.imgur.com/mEJvVA4.png" width="250">
+  Create Event View
 </span>
