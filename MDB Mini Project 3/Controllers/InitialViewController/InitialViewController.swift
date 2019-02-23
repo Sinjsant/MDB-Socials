@@ -8,6 +8,8 @@
 
 import UIKit
 import Material
+import Firebase
+
 
 class InitialViewController: UIViewController {
     
@@ -18,7 +20,12 @@ class InitialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        InitialViewController.printFontFamilies()
+        
+        if Auth.auth().currentUser != nil {
+            performSegue(withIdentifier: "skipToFeed", sender: self)
+        }
+        
+        
         
         titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/4))
         titleLabel.center = CGPoint(x: view.frame.width/2, y: 180)
@@ -83,7 +90,15 @@ class InitialViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Show the navigation bar on other view controllers
+        // I need these for it to work
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.navigationBar.backgroundColor = .clear
+        // I don't actually know if I need these
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barTintColor = .clear
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     public static func printFontFamilies() {

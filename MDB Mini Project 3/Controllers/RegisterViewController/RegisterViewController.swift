@@ -8,6 +8,8 @@
 
 import UIKit
 import Material
+import Firebase
+import FirebaseDatabase
 
 class RegisterViewController: UIViewController {
     
@@ -101,7 +103,7 @@ class RegisterViewController: UIViewController {
         submitButton.layer.cornerRadius = submitButton.frame.height/2
         submitButton.pulseColor = .white
         submitButton.setTitleColor(.white, for: .normal)
-        submitButton.addTarget(self, action: #selector(openFeed), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(submit), for: .touchUpInside)
 
         view.addSubview(submitButton)
         
@@ -122,10 +124,26 @@ class RegisterViewController: UIViewController {
         return emailTest.evaluate(with: testStr)
     }
     
-    @objc func openFeed() {
-        self.dismiss(animated: true, completion: nil)
-        self.navigationController?.popViewController(animated: true)
-        performSegue(withIdentifier: "toFeed", sender: self)
+    @objc func submit() {
+        Auth.auth().createUser(withEmail: email.text!, password: password.text!) {authResult, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            var values = [String: Any]()
+            values["username"] = self.username.text!
+            values["email"] = self.email.text!
+            values["fullname"] = self.fullname.text!
+            
+            Database.database().reference().child("user").child(self.username.text!).setValue(values, withCompletionBlock: { (error, ref) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                self.performSegue(withIdentifier: "toFeed", sender: self)
+                
+            })
+            
+        }
+        
     }
     
 

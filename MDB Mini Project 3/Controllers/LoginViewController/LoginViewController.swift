@@ -8,6 +8,8 @@
 
 import UIKit
 import Material
+import Firebase
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
     
@@ -70,7 +72,7 @@ class LoginViewController: UIViewController {
         submitButton.layer.cornerRadius = submitButton.frame.height/2
         submitButton.pulseColor = .white
         submitButton.setTitleColor(.white, for: .normal)
-        submitButton.addTarget(self, action: #selector(openFeed), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(submit), for: .touchUpInside)
         
         view.addSubview(submitButton)
         
@@ -88,10 +90,20 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @objc func openFeed() {
-        self.dismiss(animated: true, completion: nil)
-        self.navigationController?.popViewController(animated: true)
-        performSegue(withIdentifier: "toFeed", sender: self)
+    @objc func submit() {
+        
+        Database.database().reference().child("user").child(username.text!).observeSingleEvent(of: .value) { (snap) in
+            guard let data = snap.value as? [String: Any?] else {return}
+            
+            let emailstring = data["email"] as! String
+            Auth.auth().signIn(withEmail: emailstring, password: self.password.text!) { (auth, err) in
+                if let error = err {
+                    print(error)
+                    return
+                }
+                self.performSegue(withIdentifier: "toFeed", sender: self)
+            }
+        }
     }
     
 

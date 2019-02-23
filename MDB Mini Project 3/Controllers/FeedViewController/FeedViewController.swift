@@ -7,49 +7,62 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import Firebase
 
 class FeedViewController: UIViewController {
     
     var feedTableView : UITableView!
+    var selectedEvent : Event!
+    var allEvents: [Event]! = [] {
+        didSet {
+            feedTableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadAllEvents();
+        
+        
         let backButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
         backButton.tintColor = .white
-        backButton.title = "Logout"
-        
         self.navigationItem.leftBarButtonItem = backButton
         
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 225, height: 60))
-        titleLabel.center = CGPoint(x: view.frame.width/2, y: 50)
-        titleLabel.text = "Events"
-        titleLabel.font = UIFont(name: "Poppins-SemiBold", size: 24)
-        titleLabel.textColor = .white
-        titleLabel.textAlignment = .center
-        self.navigationItem.titleView = titleLabel
+        let createButton = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(createNew))
+        createButton.tintColor = .white
+        createButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-SemiBold", size: 34)!],
+                                            for: .normal)
+        self.navigationItem.rightBarButtonItem = createButton
         
-        self.navigationController!.navigationBar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 400)
+        
+
   
-//        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "Poppins-Bold", size: 40)!, NSAttributedString.Key.foregroundColor: UIColor.white]
-//        self.navigationItem.title = "Events"
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationItem.titlecolor
+        // Old attempt to style navbar title
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-SemiBold", size: 24)!, NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-SemiBold", size: 40)!, NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationItem.title = "Events"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .automatic
 
         
 
         
-        feedTableView = UITableView(frame: CGRect(x: 20, y: 200, width: view.frame.width-40, height: view.frame.height-300))
+        feedTableView = UITableView(frame: CGRect(x: 10, y: (self.navigationController?.navigationBar.frame.height)!, width: view.frame.width-20, height: view.frame.height-100))
         feedTableView.dataSource = self
         feedTableView.delegate = self
         feedTableView.register(FeedTableViewCell.self, forCellReuseIdentifier: "eventCell")
         view.addSubview(feedTableView)
+        
 
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Hide the navigation bar on the this view controller
+        // Show the navigation bar on the this view controller
         self.navigationController?.navigationBar.barTintColor = .blue
         self.navigationController?.navigationBar.backgroundColor = .blue
 
@@ -57,18 +70,58 @@ class FeedViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // Show the navigation bar on other view controllers
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.barTintColor = .clear
-        self.navigationController?.navigationBar.backgroundColor = .clear
-        self.navigationController?.view.backgroundColor = .clear
+        // Hide the navigation bar on next view controllers
+        // Is this even necessary?
+         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = .white
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.isTranslucent = true
+//        self.navigationController?.navigationBar.barTintColor = .clear
+//        self.navigationController?.navigationBar.backgroundColor = .clear
+//        self.navigationController?.view.backgroundColor = .clear
     }
     
     
     @objc func logout() {
+        
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @objc func createNew() {
+        performSegue(withIdentifier: "toCreate", sender: self)
+    }
+    
+    func loadAllEvents() {
+        Database.database().reference().child("event").observe(.value) { (snap) in
+            var allEventsTemp : [Event] = []
+            for child in snap.children {
+                let eventDict = (child as! DataSnapshot).value as! NSDictionary
+                let name = eventDict.value(forKey: "name") as! String
+                let date = eventDict.value(forKey: "date") as! String
+                let description = eventDict.value(forKey: "description") as! String
+                let interested = eventDict.value(forKey: "interested") as! Int
+                let owner = eventDict.value(forKey: "owner") as! String
+                
+                let newEvent = Event(withName: name, ownedBy: owner, dated: date, description: description, interested: interested)
+                allEventsTemp.append(newEvent)
+            }
+            allEventsTemp = allEventsTemp.sorted(by: {$0.getDate() > $1.getDate()})
+            self.allEvents = allEventsTemp
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetails" {
+            let resultVC = segue.destination as! DetailViewController
+            resultVC.event = selectedEvent
+        }
     }
     
     
